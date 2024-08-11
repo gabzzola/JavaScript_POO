@@ -18,29 +18,29 @@
 
   <!-- NavBar -->
   <header>
-    <div>
-      <div>
+    <div class="flex fixed bg-red-50 w-full p-6">
+      <div class="container m-auto flex items-center">
         <!-- Logo do site -->
         <div>
-          <img src="">
+          <img class="w-20" src="images/logo_porquinho.webp">
         </div>
 
         <!-- Links para as duas telas -->
-        <nav>
-          <div>
-            <ul>
+        <div class="flex flex-row flex-1">
+          <nav class="font-bold uppercase">
+            <ul class="flex">
               <li>
-                <a href="index.html">Cadastro</a>
+                <a class="px-4" href="index.html">Cadastro</a>
               </li>
               <li>
-                <a href="">Consulta</a>
+                <a class="px-4" href="">Consulta</a>
               </li>
             </ul>
-          </div>
-        </nav>
+          </nav>
+        </div>
 
         <!-- Ícone de menu Hamburguer -->
-        <div>
+        <div class="flex justify-end flex-1 text-3xl">
           <i class="fas fa-bars"></i>
         </div>
       </div>
@@ -48,22 +48,22 @@
   </header>
 
   <!-- Conteúdo -->
-  <main>
-    <div>
+  <main class="pt-28">
+    <div class="container mx-auto">
       <!-- Título -->
-      <div>
-        <h1>Registro de nova despesa</h1>
+      <div class="col-span-6 my-12">
+        <h1 class="text-4xl uppercase">Registro de nova despesa</h1>
       </div>
-
-      <div>
+  
+      <div class="grid grid-cols-6 gap-6">
         <!-- Definição do dia -->
-        <div>
-          <input type="number" placeholder="Dia" min="1" max="31">
+        <div class="col-span-1">
+          <input type="number" placeholder="Dia" min="1" max="31" class="form-input">
         </div>
-
+  
         <!-- Seleção do mês -->
-        <div>
-          <select>
+        <div class="col-span-1">
+          <select class="form-input">
             <option>Mês</option>
             <option>Janeiro</option>
             <option>Fevereiro</option>
@@ -79,18 +79,18 @@
             <option>Dezembro</option>
           </select>
         </div>
-
+  
         <!-- Seleção do ano -->
-        <div>
-          <select>
+        <div class="col-span-1">
+          <select class="form-input">
             <option>Ano</option>
             <option>2024</option>
           </select>
         </div>
-
+  
         <!-- Seleção do tipo -->
-        <div>
-          <select>
+        <div class="col-span-3">
+          <select class="form-input">
             <option>Tipo</option>
             <option>Alimentação</option>
             <option>Educação</option>
@@ -99,23 +99,26 @@
             <option>Transporte</option>
           </select>
         </div>
-
+  
         <!-- Texto de descrição -->
-        <div>
-          <input type="text" placeholder="Descrição">
+        <div class="col-span-4">
+          <input type="text" placeholder="Descrição" class="form-input">
         </div>
-
+  
         <!-- Valor -->
-        <div>
-          <input type="number" placeholder="Valor">
+        <div class="col-span-1">
+          <input type="number" placeholder="Valor" class="form-input">
         </div>
-
+  
         <!-- Botão de adicionar despesa-->
-        <button>
-        </button>
+        <div class="col-span-1">
+          <button class="form-input h-full bg-red-50 text-xs uppercase">
+            Adicionar
+          </button>
+        </div>
       </div>
     </div>
-  </main>
+  </main>  
 
 </body>
 
