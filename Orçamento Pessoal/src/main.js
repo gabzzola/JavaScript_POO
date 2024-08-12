@@ -31,5 +31,6 @@ function cadastrarDespesa() {
 }
 
 function gravarDespesa(despesa) {
-  localStorage.setItem('despesa', JSON.stringify(despesa))
+  let novoIndice = localStorage.length
+  localStorage.setItem(novoIndice, JSON.stringify(despesa))
 }
