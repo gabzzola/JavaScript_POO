@@ -7,6 +7,15 @@ class Despesa {
     this.description = description
     this.price = price
   }
+
+  validarDados() {
+    for (let i in this) {
+      if (!this[i]) {
+        return false
+      }
+    }
+    return true
+  }
 }
 
 function cadastrarDespesa() {
@@ -26,8 +35,12 @@ function cadastrarDespesa() {
     price
   )
 
-  console.log(despesa)
-  gravarDespesa(despesa)
+  if (despesa.validarDados()) {
+    console.log(`Dados válidos`)
+    gravarDespesa(despesa)
+  } else {
+    console.log(`Dados inválidos`)
+  }
 }
 
 function gravarDespesa(despesa) {
