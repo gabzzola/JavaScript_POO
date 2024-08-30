@@ -36,10 +36,10 @@ function cadastrarDespesa() {
   )
 
   if (despesa.validarDados()) {
-    console.log(`Dados válidos`)
     gravarDespesa(despesa)
+    sucessoGravacao()
   } else {
-    console.log(`Dados inválidos`)
+    erroGravacao()
   }
 }
 
