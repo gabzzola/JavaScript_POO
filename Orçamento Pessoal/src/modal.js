@@ -7,8 +7,11 @@ OPEN_MODAL.addEventListener('click', () => {
 }) 
 
 CLOSE_MODAL.addEventListener('click', () => {
-  MODAL.classList.add('invisible')
-  location.reload()
+  MODAL.classList.add('invisible') 
+
+  if (CLOSE_MODAL.classList.contains('bg-green-500')) {
+    window.location.reload()
+  }
 })
 
 function erroGravacao() {
@@ -16,10 +19,12 @@ function erroGravacao() {
   const P_ERROR = document.querySelector('#modal > div > p')
 
   TITLE_ERROR.textContent = 'Erro na gravação!'
-  TITLE_ERROR.classList.add('text-red-500')
+  TITLE_ERROR.className = 'title-default text-red-500'
+
   P_ERROR.textContent = 'Existem campos obrigatórios que não foram preenchidos'
+
   CLOSE_MODAL.textContent = 'Voltar e corrigir'
-  CLOSE_MODAL.classList.add('bg-red-500', 'hover:bg-red-700')
+  CLOSE_MODAL.className = 'btn-closeModal bg-red-500 hover:bg-red-700'
 }
 
 function sucessoGravacao() {
@@ -27,8 +32,10 @@ function sucessoGravacao() {
   const P_SUCESS = document.querySelector('#modal > div > p')
 
   TITLE_SUCESS.textContent = 'Registro salvo com sucesso!'
-  TITLE_SUCESS.classList.add('text-green-500')
+  TITLE_SUCESS.className = 'title-default text-green-500'
+
   P_SUCESS.textContent = 'A despesa foi cadastrada com sucesso!'
+
   CLOSE_MODAL.textContent = 'Voltar'
-  CLOSE_MODAL.classList.add('bg-green-500', 'hover:bg-green-600')
+  CLOSE_MODAL.className = 'btn-closeModal bg-green-500 hover:bg-green-600'
 }
