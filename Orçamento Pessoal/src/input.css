@@ -6,14 +6,22 @@
   @apply w-full px-2 py-2 border rounded-md placeholder-black;
 }
 
-.form-table {
-  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
-}
-
 .title-default {
   @apply text-xl font-bold mb-4;
 }
 
+.form-table {
+  @apply text-left text-base font-medium text-gray-500 uppercase tracking-wider px-6 py-3;
+}
+
+.row-table {
+  @apply uppercase border-b hover:bg-gray-100;
+}
+
+.column-table {
+  @apply text-xs px-6 py-3;
+}
+
 .btn-closeModal {
-  @apply rounded text-white px-4 py-2 transition duration-500;
+  @apply text-white px-4 py-2 rounded transition duration-500;
 }

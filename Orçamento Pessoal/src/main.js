@@ -18,6 +18,33 @@ class Despesa {
   }
 }
 
+class BancoDeDados {
+  constructor() {
+    this.indice = localStorage.length
+  }
+
+  gravarDespesa(despesa) {
+    localStorage.setItem(this.indice, JSON.stringify(despesa))
+    this.indice++
+  }
+
+  recuperarDespesas() {
+    let arrayDespesas = Array()
+
+    for (let i = 0; i < this.indice; i++) {
+      let despesa = JSON.parse(localStorage.getItem(i))
+
+      if (despesa != null) {
+        arrayDespesas.push(despesa)
+      }
+    }
+
+    return arrayDespesas
+  }
+}
+
+let bdd = new BancoDeDados()
+
 function cadastrarDespesa() {
   let day = document.getElementById('day').value
   let month = document.getElementById('month').value
@@ -36,14 +63,9 @@ function cadastrarDespesa() {
   )
 
   if (despesa.validarDados()) {
-    gravarDespesa(despesa)
+    bdd.gravarDespesa(despesa)
     sucessoGravacao()
   } else {
     erroGravacao()
   }
-}
-
-function gravarDespesa(despesa) {
-  let novoIndice = localStorage.length
-  localStorage.setItem(novoIndice, JSON.stringify(despesa))
 }
