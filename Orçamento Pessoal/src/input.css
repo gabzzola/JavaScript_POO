@@ -22,6 +22,10 @@
   @apply text-xs px-6 py-3;
 }
 
+.btn-remove {
+  @apply text-sm text-white bg-red-400 px-3 p-1 rounded-md hover:bg-red-500 hover:scale-110 duration-200;
+}
+
 .btn-closeModal {
   @apply text-white px-4 py-2 rounded transition duration-500;
 }

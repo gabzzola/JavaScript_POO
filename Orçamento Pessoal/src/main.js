@@ -20,26 +20,67 @@ class Despesa {
 
 class BancoDeDados {
   constructor() {
-    this.indice = localStorage.length
+    this.indice = this.recuperarUltimoIndice() || 0
+  }
+
+  recuperarUltimoIndice() {
+    return parseInt(localStorage.getItem('ultimoIndice')) || 0
+  }
+
+  atualizarUltimoIndice() {
+    localStorage.setItem('ultimoIndice', this.indice)
   }
 
   gravarDespesa(despesa) {
     localStorage.setItem(this.indice, JSON.stringify(despesa))
     this.indice++
+    this.atualizarUltimoIndice()
   }
 
-  recuperarDespesas() {
-    let arrayDespesas = Array()
+
+  recuperarTodasDespesas() {
+    let arrayTodasDespesas = Array()
 
     for (let i = 0; i < this.indice; i++) {
       let despesa = JSON.parse(localStorage.getItem(i))
 
       if (despesa != null) {
-        arrayDespesas.push(despesa)
+        despesa.id = i
+        arrayTodasDespesas.push(despesa)
       }
     }
 
-    return arrayDespesas
+    return arrayTodasDespesas
+  }
+
+  filtrar(despesa) {
+    let despesasFiltradas = Array()
+    despesasFiltradas = this.recuperarTodasDespesas()
+
+    if (despesa.day != '') {
+      despesasFiltradas = despesasFiltradas.filter(indice => indice.day == despesa.day)
+    }
+    if (despesa.month != '') {
+      despesasFiltradas = despesasFiltradas.filter(indice => indice.month == despesa.month)
+    }
+    if (despesa.year != '') {
+      despesasFiltradas = despesasFiltradas.filter(indice => indice.year == despesa.year)
+    }
+    if (despesa.type != '') {
+      despesasFiltradas = despesasFiltradas.filter(indice => indice.type == despesa.type)
+    }
+    if (despesa.description != '') {
+      despesasFiltradas = despesasFiltradas.filter(indice => indice.description == despesa.description)
+    }
+    if (despesa.price != '') {
+      despesasFiltradas = despesasFiltradas.filter(indice => indice.price == despesa.price)
+    }
+
+    return despesasFiltradas
+  }
+
+  removerDespesa(id) {
+    localStorage.removeItem(id)
   }
 }
 
